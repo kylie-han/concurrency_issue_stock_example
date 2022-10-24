@@ -7,7 +7,7 @@
 
 문제해결법
 1. Application level
-    - `syncronized` 이용 : @Transactional과 함께 이용하면 동시성이슈가 해결되지 않는다. 또한 여러 application(server)가 db를 공유할 경우는 해결되지 않는다.
+    - `syncronized` 이용 : `@Transactional`과 함께 이용하면 동시성이슈가 해결되지 않는다. 또한 여러 application(server)가 db를 공유할 경우는 해결되지 않는다.
 2. Database Lock
     - Pessimistic Lock : 데이터에 lock을 거는 방법으로 무결성이 우수하지만 dead lock을 주의해야한다. 충돌이 빈번할경우 Optimistic Lock보다 성능이 좋다
     - Optimistic Lock : 데이터의 버전 혹은 타임스탬프 등을 활용하여 데이터의 무결성을 보장하는 것으로 별도의 lock을 사용하지 않아 성능상 이점이 있다. 단점은 update가 실패했을때 재시도 로직을 개발자가 작성해줘야하고 충돌이 빈번할 경우 Pessimistic Lock보다 성능이 안좋을 수 있다.
